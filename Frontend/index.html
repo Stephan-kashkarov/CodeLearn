@@ -25,10 +25,12 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-item nav-link active nav-home" href="#">Home</a>
-					<a class="nav-item nav-link" href="#">Questions</a>
-					<a class="nav-item nav-link" href="#">About</a>
-					<a class="nav-item nav-link" href="#">Help</a>
+					<a class="nav-item nav-link active nav-home" href="#">Question1</a>
+					<a class="nav-item nav-link disabled" href="#">Question2</a>
+					<a class="nav-item nav-link disabled" href="#">Question3</a>
+					<a class="nav-item nav-link disabled" href="#">Question4</a>
+					<a class="nav-item nav-link disabled" href="#">Question5</a>
+					<a class="nav-item nav-link disabled" href="#">Question6</a>
 				</div>
 			</div>
 		</nav>
@@ -178,8 +180,8 @@
 									<a target="_blank" href="https://www.instagram.com/stephan_kashkarov/">Instagram</a>
 									<br>
 									<br>
-									Sorry for self promoting, I needed content for this slide However if you do see this and want me to make any enquiries feel free to email me @
-									kashkarovWork@gmail.com. I would love to make some websites for you or anything similar.
+									Sorry for self promoting, I needed content for this slide However if you do see this and want me to make any enquiries
+									feel free to email me @ kashkarovWork@gmail.com. I would love to make some websites for you or anything similar.
 									<br>
 									<br>
 									This website was built with minimal Flask (for marking), JQuery and Bootstrap
@@ -190,13 +192,42 @@
 					<br><br>	
 					
 					<br>
-					Lets start with the basics of Python.
 				</div>
-				<pre>
-					<code>
-						<div id="code" contenteditable="true">Hello!</div>
-					</code>
-				</pre>
+				<div class="question bg-dark">
+					<h5><b><u>Hello World!</u></b></h5>
+					<span class="q-desc">
+						One thing all newcommers to programming do to get themselves
+						started on thier journey is to make the computer say "<samp class="string">Hello World!</samp>"
+						so lets try do that. In Python there are things called functions. Functions are
+						like boxes that take an input and give an output. There are thousands of default
+						functions in python and you can even make your own, but lets start with the most
+						simple function of all... <samp class="function">print()</samp>!. the print funtion
+						takes whatever you give it and prints that out as an output. This is the easiest way
+						to see what your code is doing or to give outputs to your code quickly and simply.
+						<br>
+						<br>
+						Lets try printing Hello, World!.
+						<br>
+						<br>
+						so we need to print hello world. Lets thing of how we can do this. Using all of our
+						knowlege of programming we know that we need a to get a string and put it though
+						a function to give us an output.
+						<br>
+						<br>
+						We have as string <samp class="string">"Hello World!"</samp> and we have a function
+						"<samp class="function">print()</samp>", so lets put them together... below type in this and hit mark.
+						<br>
+						<br>
+						<samp class="function">print(<samp class="string">"Hello World!"</samp>)</samp>
+					</span>
+					<hr class="bg-light">
+					<pre>
+						<code>
+							<div id="code" contenteditable="true">Write your code here!</div>
+						</code>
+					</pre>
+					<div class="centred"><button class="btn btn-light">Mark!</button></div>
+				</div>
 			</div>
 		</main>
 		<!-- Footer -->
@@ -204,17 +235,13 @@
 			<!-- Footer content -->
 		</footer>
 
-		<!-- Scripts -->
-
+		<!-- JavaScript -->
 		<!-- Jquery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<!-- My Code -->
-		<script src="js/functions.js"></script>
-		<script src="js/main.js"></script>
-		<!-- Bootstrap Scripts -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-			crossorigin="anonymous"></script>
+		<script src="js/ui.js"></script>
+		<script src="js/editor.js"></script>
+		<!-- Bootstrap -->
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 			integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 			crossorigin="anonymous"></script>
