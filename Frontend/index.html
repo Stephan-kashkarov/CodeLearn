@@ -10,6 +10,9 @@
 			integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 			crossorigin="anonymous">
 		<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+		<link rel="stylesheet" type="text/css" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+		<link rel="stylesheet" type="text/css" href="css/syntax/dracula.css">
+		
 	</head>
 	<body>
 		<!-- Navbar -->
@@ -222,11 +225,14 @@
 					</span>
 					<hr class="bg-light">
 					<pre>
-						<code>
-							<div id="code" contenteditable="true">Write your code here!</div>
+						<code class="python">
+							<div id="code" contenteditable="true"># Write your code here!</div>
 						</code>
 					</pre>
-					<div class="centred"><button class="btn btn-light">Mark!</button></div>
+					<div class="centred">
+						<button class="btn btn-light">Highlight!</button>
+						<button class="btn btn-light">Mark!</button>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -237,6 +243,7 @@
 
 		<!-- JavaScript -->
 		<!-- Jquery -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<!-- My Code -->
 		<script src="js/init.js"></script>

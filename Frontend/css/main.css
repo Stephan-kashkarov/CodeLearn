@@ -35,3 +35,7 @@ pre {
 .centred {
 	text-align: center;
 }
+
+.python {
+	border-radius: 10px 10px;	
+}
