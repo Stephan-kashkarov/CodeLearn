@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+.desc, nav{
+	font-family: 'Ubuntu',
+	sans-serif;
+}
+
+.title {
+	text-align: center;
+}
