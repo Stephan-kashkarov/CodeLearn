@@ -29,16 +29,19 @@ $(function(){
 				}
 			}).responseText
 
-		if ($(this).text() == 'Mark!'){
-			var final = true
-		} else {
-			var final = false
-		}
-
 		if (ans == answers[questionNumber]){
 			if ($(this).text() == 'Mark!') {
+				console.log("Opening next question");
+				
 				var newNumber = eval(questionNumber) + 1 
-				$(question.substr(0, question.length - 1) + newNumber).removeClass('disabled')
+				console.log(newNumber)
+				var selector = question.substr(0, question.length - 1) + newNumber
+				console.log(selector);
+				$('.nav-item:contains(' + selector + ')').removeClass('disabled')
+				var questions = JSON.parse(window.localStorage.getItem('questions'))
+				questions[parseInt(questionNumber)]['locked'] = false
+				console.log(questions);
+				window.localStorage.setItem("questions", JSON.stringify(questions))
 			}
 			$('.result').text('Correct')
 		} else {
