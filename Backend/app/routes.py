@@ -16,12 +16,9 @@ def mark():
 		_print(code)
 		try:
 			code = eval(code)
-			code = code.split('/n')
-			for string in code:
-				_print('> {}'.format(string))
-			code = '\\n'.join(code)
+			_print('> {}'.format(code))
 		except:
 			code = traceback.format_exc()
 
-		return code
+		return str(code)
 	return 'false'
