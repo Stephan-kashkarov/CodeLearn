@@ -1,13 +1,13 @@
 hljs.initHighlightingOnLoad()
 $(function(){
 	// Syntax highlighting
-	$('button:contains("Highlight!")').on('click', function (e) {
+	$('button').on('click', function (e) {
 		$('pre code').each(function (i, block) {
 		 	setTimeout(hljs.highlightBlock(block), 2000)
 		})
 	})
 
-	$('button:contains("Run!")').on('click', function(){		
+	$('button:contains("Run!"), button:contains("Mark!")').on('click', function () {
 		var question = $('.active').text()
 		var questionNumber = question.substr(question.length - 1)
 		var code = $('#code').text()
@@ -29,7 +29,17 @@ $(function(){
 				}
 			}).responseText
 
+		if ($(this).text() == 'Mark!'){
+			var final = true
+		} else {
+			var final = false
+		}
+
 		if (ans == answers[questionNumber]){
+			if ($(this).text() == 'Mark!') {
+				var newNumber = eval(questionNumber) + 1 
+				$(question.substr(0, question.length - 1) + newNumber).removeClass('disabled')
+			}
 			$('.result').text('Correct')
 		} else {
 			$('.result').text('Incorrect')
@@ -46,5 +56,16 @@ $(function(){
 		$('pre code').each(function (i, block) {
 			hljs.highlightBlock(block)
 		})
+	})
+
+	$('button:contains("Save!")').on('click', function(){
+		var code = $('#code').text()
+		var question = $('.active').text()
+		var questionNumber = question.substr(question.length - 1)
+		console.log(window.localStorage.getItem('questions'))
+		var questions = JSON.parse(window.localStorage.getItem('questions'))
+		questions[parseInt(questionNumber) - 1]['code'] = code
+		console.log(questions);
+		window.localStorage.setItem("questions", JSON.stringify(questions))
 	})
 })

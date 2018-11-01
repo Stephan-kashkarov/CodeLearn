@@ -1,4 +1,4 @@
-var emptyLocalTemplate = [
+const emptyLocalTemplate = [
 	{
 		'name': 'Question1',
 		'active': true,
@@ -40,6 +40,8 @@ var emptyLocalTemplate = [
 $(function(){
 	// Initialize items from Local Storage
 	var questions = window.localStorage.getItem('questions')
+	console.log(window.localStorage.getItem('questions'));
+	
 	if (questions){
 		var questions = JSON.parse(window.localStorage.getItem('questions'))
 	} else {
@@ -52,7 +54,7 @@ $(function(){
 		if (questions[i]['locked']){
 			var obj = questions[i]['name']
 			$('a:contains(' + obj + ')').addClass('disabled')
-		} else if (questions[i][active]) {
+		} else if (questions[i]['active']) {
 			$('#code').text(questions[i]['code'])
 		}
 	}
