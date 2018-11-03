@@ -37,10 +37,25 @@ const emptyLocalTemplate = [
 	}
 ]
 
+function loadPage() {
+	
+	var question = $('.active').text()
+	var activeQuestion = "q" + question.substr(question.length - 1)
+	if (activeQuestion == 'q1') {
+
+		
+		$('.about').append($.parseHTML(intro))
+	} else {
+
+		$('.about').empty()
+	}
+	$('.question-text').empty()
+	$('.question-text').append($.parseHTML(eval(activeQuestion)))
+}
+
 $(function(){
 	// Initialize items from Local Storage
 	var questions = window.localStorage.getItem('questions')
-	console.log(window.localStorage.getItem('questions'));
 	
 	if (questions){
 		var questions = JSON.parse(window.localStorage.getItem('questions'))
@@ -50,7 +65,7 @@ $(function(){
 	}
 
 	for (var i in questions){
-		console.log(questions[i])
+
 		if (questions[i]['locked']){
 			var obj = questions[i]['name']
 			$('a:contains(' + obj + ')').addClass('disabled')
@@ -58,14 +73,6 @@ $(function(){
 			$('#code').text(questions[i]['code'])
 		}
 	}
-
-
 	// Load Correct Question
-	var question = $('.active').text()
-	var activeQuestion = "q" + question.substr(question.length - 1)
-
-	if (activeQuestion == 'q1'){
-		$('.about').append($.parseHTML(intro))
-	}
-	$('.question-text').append($.parseHTML(eval(activeQuestion)))
+	loadPage()
 })

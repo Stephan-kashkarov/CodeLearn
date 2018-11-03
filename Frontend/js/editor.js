@@ -2,9 +2,7 @@ hljs.initHighlightingOnLoad()
 $(function(){
 	// Syntax highlighting
 	$('button').on('click', function (e) {
-		$('pre code').each(function (i, block) {
-		 	setTimeout(hljs.highlightBlock(block), 2000)
-		})
+		
 	})
 
 	$('button:contains("Run!"), button:contains("Mark!")').on('click', function () {
@@ -13,6 +11,8 @@ $(function(){
 		var questionNumber = question.substr(question.length - 1)
 		// get and parse code
 		var code = $('#code').text()
+		console.log(code)
+		
 
 		//send code
 		var ans = $.ajax({
@@ -24,27 +24,16 @@ $(function(){
 					'code': code
 				}),
 				contentType: "application/json; charset=utf-8",
-				dataType: "json",
-				success: function (data) {
-					console.log("Ajax succsess: " + data)
-				},
-				failure: function (errMsg) {
-					console.log("Ajax error: " + errMsg)
-				}
+				dataType: "json"
 			}).responseText
 		// process response
 		if (ans == answers[questionNumber]){
 			if ($(this).text() == 'Mark!') {
-				console.log("Opening next question");
-				
 				var newNumber = eval(questionNumber) + 1 
-				console.log(newNumber)
 				var selector = question.substr(0, question.length - 1) + newNumber
-				console.log(selector);
 				$('.nav-item:contains(' + selector + ')').removeClass('disabled')
 				var questions = JSON.parse(window.localStorage.getItem('questions'))
 				questions[parseInt(questionNumber)]['locked'] = false
-				console.log(questions);
 				window.localStorage.setItem("questions", JSON.stringify(questions))
 				$('button:contains("Next!")').removeClass('disabled')
 			}
@@ -52,7 +41,6 @@ $(function(){
 		} else {
 			$('.result').text('Incorrect')
 		}
-		console.log(ans);
 		
 		if (ans[0] == "<"){
 			$('#output').parent().removeClass('python').addClass('html')
@@ -70,10 +58,27 @@ $(function(){
 		var code = $('#code').text()
 		var question = $('.active').text()
 		var questionNumber = question.substr(question.length - 1)
-		console.log(window.localStorage.getItem('questions'))
 		var questions = JSON.parse(window.localStorage.getItem('questions'))
 		questions[parseInt(questionNumber) - 1]['code'] = code
-		console.log(questions);
 		window.localStorage.setItem("questions", JSON.stringify(questions))
+	})
+
+	$("#code").on('keypress',function(e){
+		console.log(e.which)
+		// syntax highlighting
+		// $('pre code').each(function (i, block) {
+		// 	hljs.highlightBlock(block)
+		// })
+		switch (e.which) {
+			case 13:
+				console.log('enter pressed');
+				$(this).append('\n')
+				break
+		
+			default:
+				break
+		}
+		$(this).focus()
+		$(this).prop('selectionEnd', $(this).prop('selectionEnd'))
 	})
 })

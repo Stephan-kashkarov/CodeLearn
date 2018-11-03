@@ -4,6 +4,7 @@ $(function(){
 		if (!($(this).hasClass('disabled'))){
 			$('.active').removeClass("active")
 			$(this).addClass('active')
+			loadPage()
 		}
 	})
 
@@ -22,6 +23,7 @@ $(function(){
 				$('button:contains("Prev!")').removeClass('disabled')
 				$('.nav-item:contains("' + question + '")').removeClass('active')
 				$('.nav-item:contains("' + newQuestion + '")').addClass('active')
+				loadPage()
 				if ($('.nav-item:contains("' + nextQuestion + '")').hasClass('disabled')) {
 					$(this).addClass('disabled')
 				}
@@ -41,6 +43,7 @@ $(function(){
 				$('button:contains("Next!")').removeClass('disabled')
 				$('.nav-item:contains("' + question + '")').removeClass('active')
 				$('.nav-item:contains("' + newQuestion + '")').addClass('active')
+				loadPage()
 				if ($('.nav-item:contains("' + nextQuestion + '")').hasClass('disabled')) {
 					$(this).addClass('disabled')
 				}
